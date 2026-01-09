@@ -97,7 +97,10 @@ const App = () => {
     const savedCatalog = localStorage.getItem('limar_custom_catalog');
     if (savedCatalog) {
       try {
-        setCategories(JSON.parse(savedCatalog));
+        const parsed = JSON.parse(savedCatalog);
+        if (Array.isArray(parsed)) {
+          setCategories(parsed);
+        }
       } catch (e) {
         console.error("Error cargando catálogo", e);
       }
@@ -216,7 +219,7 @@ const App = () => {
     <div className="bg-white min-h-screen font-inter relative selection:bg-[#8ec63f] selection:text-white">
       
       {/* Modal Agregar Producto */}
-      {showAddModal && (
+      {showAddModal !== null && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
           <div className="bg-white rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl relative animate-in zoom-in duration-300">
             <button onClick={() => setShowAddModal(null)} className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600">
@@ -268,7 +271,7 @@ const App = () => {
       )}
 
       {/* Modal Detalle */}
-      {selectedProduct && (
+      {selectedProduct !== null && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-300">
           <div className="bg-white rounded-[2.5rem] w-full max-w-2xl overflow-hidden shadow-2xl relative animate-in zoom-in duration-300">
             <button onClick={() => setSelectedProduct(null)} className="absolute top-6 right-6 p-2 bg-gray-100 rounded-full hover:bg-gray-200 z-10"><X size={24}/></button>
