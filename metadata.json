@@ -1,0 +1,7 @@
+{
+  "name": "Limar Laboratorio Nutricional",
+  "description": "Sitio web oficial de Laboratorio de Innovación Farmacéutica Limar SAS, presentando sus líneas de productos nutricionales Shiren, Inskin y Newsure.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
