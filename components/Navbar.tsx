@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react';
 
 const Logo = () => (
   <img 
-    src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wARCAEQAUwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpan30dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oAMBAAIRAxEAPwD9UKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooprOFzzyKNgHUVi614y0Pw2hbVdXstPAGf9JnVD+RNcHq37Tfw90tnX+3DdupxttLeSQH6Nt2/rXXRwmJxH8Km5eibPLxOaYHB/7xWjH1kl+p6tRXg037Y/gqJiEtNYnGeCtugH6uKjH7Zng0/8w3Wf+/MX/wAcr0VkeZtXWHl9x4746/Y/gqJiEtNYnGeCtugH6uKjH7Zng0/8w3Wf+/MX/Acr0VkeZtXWHl9x474ryNO31uH3nvtFeI2H7XHgK6ZRNPqFkSefOtGbH/fBauz0L44+BfEJCWniewEjdEuJPJY/g+01yVctxtFXqUZJejPQw+e5Xiny0cTBv8AxL/M7uioIryGaNZI5UljboyEEH8anByMivOemh7aaeqCiiigYUUUUAFFFFRRv80=" 
+    src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wARCAEQAUwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpan30dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9UKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooprOFzzyKNgHUVi614y0Pw2hbVdXstPAGf9JnVD+RNcHq37Tfw90tnX+3DdupxttLeSQH6Nt2/rXXRwmJxH8Km5eibPLxOaYHB/7xWjH1kl+p6tRXg037Y/gqJiEtNYnGeCtugH6uKjH7Zng0/8w3Wf+/MX/wAcr0VkeZtXWHl9x4746/Y/gqJiEtNYnGeCtugH6uKjH7Zng0/8w3Wf+/MX/Acr0VkeZtXWHl9x474ryNO31uH3nvtFeI2H7XHgK6ZRNPqFkSefOtGbH/fBauz0L44+BfEJCWniewEjdEuJPJY/g+01yVctxtFXqUZJejPQw+e5Xiny0cTBv8AxL/M7uioIryGaNZI5UljboyEEH8anByMivOemh7aaeqCiiigYUUUUAFFFFRRv80=" 
     alt="Limar Logo" 
     className="w-10 h-10 object-contain"
   />
@@ -92,7 +92,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, onLoginClick, onLogoutClick
             </div>
             
             <a
-              href="https://wa.me/3232462818"
+              href="https://wa.me/573232462818"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#22c55e] text-white px-6 py-2.5 rounded-full text-sm font-black hover:bg-[#16a34a] transition-all shadow-lg active:scale-95 flex items-center gap-2"
@@ -116,7 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, onLoginClick, onLogoutClick
           {navLinks.map((link) => (
             <button key={link.name} onClick={() => handleLinkClick(link.href)} className="block w-full text-left px-3 py-2 rounded-md text-base font-bold text-gray-700 hover:text-[#004a87] uppercase">{link.name}</button>
           ))}
-          <a href="https://wa.me/3232462818" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 bg-[#22c55e] text-white text-center rounded-md font-bold mt-2">WhatsApp</a>
+          <a href="https://wa.me/573232462818" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 bg-[#22c55e] text-white text-center rounded-md font-bold mt-2">WhatsApp</a>
         </div>
       </div>
     </nav>

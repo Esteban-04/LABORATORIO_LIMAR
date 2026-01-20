@@ -138,7 +138,7 @@ const App = () => {
   const handleCotizar = () => {
     if (!selectedProduct) return;
     const message = encodeURIComponent(`Hola Limar Lab, me interesa el producto: ${selectedProduct.product.name}`);
-    window.open(`https://wa.me/3232462818?text=${message}`, '_blank');
+    window.open(`https://wa.me/573232462818?text=${message}`, '_blank');
   };
 
   return (
@@ -379,7 +379,7 @@ const App = () => {
       <ContactFooter />
 
       {!selectedProduct && (
-        <a href="https://wa.me/3232462818" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 bg-[#22c55e] text-white p-4 rounded-2xl shadow-2xl hover:scale-110 transition-transform z-50">
+        <a href="https://wa.me/573232462818" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 bg-[#22c55e] text-white p-4 rounded-2xl shadow-2xl hover:scale-110 transition-transform z-50">
           <MessageSquare size={24} />
         </a>
       )}
