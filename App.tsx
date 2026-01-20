@@ -179,7 +179,7 @@ const App = () => {
         </div>
       )}
 
-      {/* Modal: Detalle (REFINADO Y MÁS PEQUEÑO) */}
+      {/* Modal: Detalle (ESTILO REFINADO) */}
       {selectedProduct && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-300">
           <div className="bg-white rounded-xl w-full max-w-3xl overflow-hidden shadow-2xl relative p-8 md:p-12 animate-in zoom-in-95 duration-300">
@@ -292,7 +292,18 @@ const App = () => {
                   <ShoppingCart size={20} /> Cotizar vía WhatsApp
                 </button>
               ) : (
-                <div className="flex flex-wrap items-center gap-3">
+                <div className="flex flex-wrap items-center gap-4">
+                  {/* Miniatura de confirmación visual para el Admin */}
+                  <div className="w-12 h-12 bg-gray-100 rounded-lg overflow-hidden border border-gray-200 shrink-0 shadow-sm">
+                    {selectedProduct.product.image ? (
+                      <img src={selectedProduct.product.image} className="w-full h-full object-contain" alt="Miniatura" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-xs font-black text-gray-400 bg-gray-50">
+                        {selectedProduct.product.name.charAt(0)}
+                      </div>
+                    )}
+                  </div>
+
                   {editBuffer ? (
                     <button 
                       onClick={saveProductEdits}
@@ -326,7 +337,7 @@ const App = () => {
                   </button>
                   
                   {editBuffer && (
-                    <button onClick={() => setEditBuffer(null)} className="px-4 py-3 text-gray-400 font-bold text-sm">Cancelar</button>
+                    <button onClick={() => setEditBuffer(null)} className="px-4 py-3 text-gray-400 font-bold text-sm hover:text-gray-600 transition-colors">Cancelar</button>
                   )}
                 </div>
               )}
