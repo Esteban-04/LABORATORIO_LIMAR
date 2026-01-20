@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Category, Product } from '../types';
-import { ShoppingCart, CheckCircle2, Plus, Trash2, Camera } from 'lucide-react';
+import { ShoppingCart, CheckCircle2, Plus } from 'lucide-react';
 
 interface ProductSectionProps {
   category: Category;
@@ -16,8 +16,6 @@ const ProductSection: React.FC<ProductSectionProps> = ({
   category, 
   isLoggedIn, 
   onAddProduct, 
-  onRemoveProduct, 
-  onUploadImage, 
   onSelectProduct 
 }) => {
   return (
@@ -48,27 +46,9 @@ const ProductSection: React.FC<ProductSectionProps> = ({
           {category.products.map((product) => (
             <div 
               key={product.id} 
-              className="group relative bg-gray-50 rounded-3xl p-8 transition-all duration-300 hover:bg-white hover:shadow-2xl hover:-translate-y-2 border border-gray-200/50 flex flex-col h-full"
+              className="group relative bg-gray-50 rounded-3xl p-8 transition-all duration-300 hover:bg-white hover:shadow-2xl hover:-translate-y-2 border border-gray-200/50 flex flex-col h-full cursor-pointer"
               onClick={() => onSelectProduct(product)}
             >
-              {/* Admin: Control Buttons */}
-              {isLoggedIn && (
-                <div className="absolute top-4 right-4 flex flex-col gap-2 z-10">
-                  <button 
-                    onClick={(e) => { e.stopPropagation(); onRemoveProduct(product.id); }} 
-                    className="p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors shadow-lg"
-                  >
-                    <Trash2 size={16} />
-                  </button>
-                  <button 
-                    onClick={(e) => { e.stopPropagation(); onUploadImage(product.id); }} 
-                    className="p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors shadow-lg"
-                  >
-                    <Camera size={16} />
-                  </button>
-                </div>
-              )}
-
               <div className="mb-6 overflow-hidden rounded-2xl bg-white shadow-inner aspect-square flex items-center justify-center p-8 group-hover:scale-105 transition-transform shrink-0">
                 {product.image ? (
                   <img src={product.image} alt={product.name} className="w-full h-full object-contain" />
@@ -107,7 +87,6 @@ const ProductSection: React.FC<ProductSectionProps> = ({
 
                 <div className="pt-6 mt-auto">
                   <button 
-                    onClick={(e) => { e.stopPropagation(); onSelectProduct(product); }}
                     className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl text-white font-bold transition-all shadow-lg hover:shadow-xl active:scale-95 ${category.themeColor}`}
                   >
                     <ShoppingCart size={18} /> Cotizar

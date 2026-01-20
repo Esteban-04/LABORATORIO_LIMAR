@@ -4,6 +4,8 @@ export interface Product {
   name: string;
   benefits: string;
   presentation: string;
+  dosage?: string;
+  advancedDescription?: string;
   image?: string;
   color?: string;
 }
