@@ -1,23 +1,45 @@
 
 import React from 'react';
-import { Category } from '../types';
-import { ShoppingCart, CheckCircle2 } from 'lucide-react';
+import { Category, Product } from '../types';
+import { ShoppingCart, CheckCircle2, Plus, Trash2, Camera } from 'lucide-react';
 
 interface ProductSectionProps {
   category: Category;
+  isLoggedIn: boolean;
+  onAddProduct: () => void;
+  onRemoveProduct: (productId: string) => void;
+  onUploadImage: (productId: string) => void;
+  onSelectProduct: (product: Product) => void;
 }
 
-const ProductSection: React.FC<ProductSectionProps> = ({ category }) => {
+const ProductSection: React.FC<ProductSectionProps> = ({ 
+  category, 
+  isLoggedIn, 
+  onAddProduct, 
+  onRemoveProduct, 
+  onUploadImage, 
+  onSelectProduct 
+}) => {
   return (
     <section id={category.id} className="py-24 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-left mb-16 relative">
+          {/* Admin: Add Product Button */}
+          {isLoggedIn && (
+            <button 
+              onClick={onAddProduct}
+              className={`md:absolute top-0 right-0 flex items-center gap-2 px-6 py-3 rounded-xl text-white font-bold transition-all shadow-lg active:scale-95 mb-6 md:mb-0 ${category.themeColor}`}
+            >
+              <Plus size={20} /> Nuevo Producto
+            </button>
+          )}
+          
           <h2 className={`text-4xl md:text-5xl font-black font-montserrat mb-2 ${category.accentColor}`}>
             {category.title}
           </h2>
           <p className="text-xl font-bold text-gray-600 mb-6 uppercase tracking-widest">{category.subtitle}</p>
-          <div className={`h-1.5 w-24 mx-auto rounded-full mb-8 ${category.themeColor}`}></div>
-          <p className="max-w-2xl mx-auto text-gray-500 text-lg">
+          <div className={`h-1.5 w-24 rounded-full mb-8 ${category.themeColor}`}></div>
+          <p className="max-w-2xl text-gray-500 text-lg">
             {category.description}
           </p>
         </div>
@@ -26,19 +48,41 @@ const ProductSection: React.FC<ProductSectionProps> = ({ category }) => {
           {category.products.map((product) => (
             <div 
               key={product.id} 
-              className="group relative bg-gray-50 rounded-3xl p-8 transition-all duration-300 hover:bg-white hover:shadow-2xl hover:-translate-y-2 border border-gray-200/50"
+              className="group relative bg-gray-50 rounded-3xl p-8 transition-all duration-300 hover:bg-white hover:shadow-2xl hover:-translate-y-2 border border-gray-200/50 flex flex-col h-full"
+              onClick={() => onSelectProduct(product)}
             >
-              <div className="mb-6 overflow-hidden rounded-2xl bg-white shadow-inner aspect-square flex items-center justify-center p-8 group-hover:scale-105 transition-transform">
-                {/* Product Image Placeholder */}
-                <div className="text-center">
-                   <div className={`w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center ${category.themeColor} text-white`}>
-                      <span className="text-3xl font-bold">{product.name.charAt(0)}</span>
-                   </div>
-                   <p className="text-xs font-bold text-gray-400 uppercase">Empaque Premium</p>
+              {/* Admin: Control Buttons */}
+              {isLoggedIn && (
+                <div className="absolute top-4 right-4 flex flex-col gap-2 z-10">
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); onRemoveProduct(product.id); }} 
+                    className="p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors shadow-lg"
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); onUploadImage(product.id); }} 
+                    className="p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors shadow-lg"
+                  >
+                    <Camera size={16} />
+                  </button>
                 </div>
+              )}
+
+              <div className="mb-6 overflow-hidden rounded-2xl bg-white shadow-inner aspect-square flex items-center justify-center p-8 group-hover:scale-105 transition-transform shrink-0">
+                {product.image ? (
+                  <img src={product.image} alt={product.name} className="w-full h-full object-contain" />
+                ) : (
+                  <div className="text-center">
+                    <div className={`w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center ${category.themeColor} text-white`}>
+                      <span className="text-3xl font-bold">{product.name.charAt(0)}</span>
+                    </div>
+                    <p className="text-xs font-bold text-gray-400 uppercase">Empaque Premium</p>
+                  </div>
+                )}
               </div>
               
-              <div className="space-y-4">
+              <div className="flex flex-col flex-1 space-y-4">
                 <div className="flex justify-between items-start">
                   <h3 className="text-xl font-bold text-gray-900 leading-tight">
                     {product.name}
@@ -51,18 +95,21 @@ const ProductSection: React.FC<ProductSectionProps> = ({ category }) => {
                    </span>
                 </div>
 
-                <div className="pt-2">
+                <div className="pt-2 flex-1">
                   <h4 className="text-sm font-bold text-gray-400 mb-2 uppercase tracking-wide">Beneficios:</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2 text-gray-600 text-sm">
                       <CheckCircle2 className={`w-4 h-4 mt-0.5 shrink-0 ${category.accentColor}`} />
-                      <span>{product.benefits}</span>
+                      <span className="line-clamp-4">{product.benefits}</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="pt-6">
-                  <button className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl text-white font-bold transition-all shadow-lg hover:shadow-xl active:scale-95 ${category.themeColor}`}>
+                <div className="pt-6 mt-auto">
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); onSelectProduct(product); }}
+                    className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl text-white font-bold transition-all shadow-lg hover:shadow-xl active:scale-95 ${category.themeColor}`}
+                  >
                     <ShoppingCart size={18} /> Cotizar
                   </button>
                 </div>

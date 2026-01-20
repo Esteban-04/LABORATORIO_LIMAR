@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Limar Lab - Innovación Nutricional</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <script type="importmap">
 {
   "imports": {
@@ -15,8 +15,8 @@
     "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
     "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime",
     "lucide-react": "https://esm.sh/lucide-react@0.460.0?external=react",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
   }
 }
 </script>
@@ -26,6 +26,7 @@
         overflow-x: hidden;
         margin: 0;
         padding: 0;
+        background-color: #05162d;
       }
       h1, h2, h3, .font-montserrat {
         font-family: 'Montserrat', sans-serif;
@@ -36,11 +37,27 @@
       #root {
         min-height: 100vh;
       }
+      .text-gradient {
+        background: linear-gradient(90deg, #93c5fd 0%, #34d399 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+      /* Ocultar barra de navegación predeterminada al inicio para usar la integrada del Hero */
+      .nav-hidden {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-20px);
+      }
+      .nav-visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
     </style>
   </head>
   <body>
     <div id="root"></div>
-    <!-- Script de entrada vital para que la página no salga en blanco -->
     <script type="module" src="./index.tsx"></script>
   </body>
 </html>
